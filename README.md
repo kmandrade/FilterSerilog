@@ -10,4 +10,4 @@ Verificar sobre esses filtros utilizando SQL Server
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
         .EnableSensitiveDataLogging()
         .EnableDetailedErrors()
-);
+
