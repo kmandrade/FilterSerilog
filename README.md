@@ -5,7 +5,7 @@ Permitindo mais facilidade ao identificar problemas na aplicação por meio de l
 
 Para conseguir utilizar precisa seguir os seguintes passos:
 
-        *Baixar o pacote nuget: dotnet add package Util.Filter.LogSerilog --version 1.0.0;
+        *Baixar o pacote nuget: NuGet\Install-Package Util.Filter.LogSerilog -Version 1.0.0
         
         *Adicionar a referência da lib baixada na classe de startup da aplicação;
         
