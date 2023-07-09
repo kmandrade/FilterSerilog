@@ -55,7 +55,7 @@ namespace SerilogConfiguration.ConfigurationSerilog
         {
             var minimumLevels = new[] { LogEventLevel.Warning, LogEventLevel.Error, LogEventLevel.Fatal };
 
-            if (logEvent.Level == LogEventLevel.Error || logEvent.Level == LogEventLevel.Fatal)
+            if (logEvent.Level == LogEventLevel.Error || logEvent.Level == LogEventLevel.Fatal || logEvent.Level == LogEventLevel.Warning)
             {
                 var exception = logEvent.Exception;
                 return exception != null;

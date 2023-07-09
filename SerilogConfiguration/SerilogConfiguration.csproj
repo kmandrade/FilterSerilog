@@ -4,6 +4,10 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>Util.Filter.LogSerilog</PackageId>
+    <Title>FilterLogSerilog</Title>
+    <Authors>KelvinAndrade</Authors>
+    <Description>Esta lib irá permitir a geração de dois tipos de arquivos txt de log, um com os logs de todos os níveis mínimos e outro apenas com os logs de níves: Erro, Warning, Fatal</Description>
   </PropertyGroup>
 
   <ItemGroup>
