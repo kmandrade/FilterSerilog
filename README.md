@@ -1,6 +1,6 @@
 # FilterSerilog
 
-Esta lib irá permitir a geração de dois tipos de arquivos txt de log, um com os logs de todos os níveis mínimos e outro apenas com os logs de níves: Erro, Warning e Fatal.
+Esta lib irá permitir a geração de dois tipos de arquivos txt de log, um com os logs de todos os níveis mínimos e outro apenas com os logs de níveis: Erro, Warning e Fatal.
 Permitindo mais facilidade ao identificar problemas na aplicação por meio de logs, utilizando Serilog.
 
 Para conseguir utilizar precisa seguir os seguintes passos:
@@ -15,4 +15,4 @@ Para conseguir utilizar precisa seguir os seguintes passos:
                   }
         *Adicionar na classe de startup da aplicação a nova configuração do Serilog:
                 builder.Services.AddSerilog(ConfigurationSerilog.ConfigureSerilog(builder.Configuration));
-OBS.: Nesta configuração foi adicionada uma restrição para ocultar informações de IP caso seja fornecida no log, afim de exemplificar a excclusão de alguma string específica, como nesse caso foi definido que caso na string do log contenha "IP" será excluída por completo (apenas nos logs filtrados).
+OBS.: Nesta configuração foi adicionada uma restrição para ocultar informações de IP caso seja fornecida no log, afim de exemplificar a exclusão de alguma string específica, como nesse caso foi definido que caso na string do log contenha "IP" será excluída por completo (apenas nos logs filtrados).
