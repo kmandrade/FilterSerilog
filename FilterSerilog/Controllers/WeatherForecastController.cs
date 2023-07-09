@@ -26,7 +26,7 @@ namespace FilterSerilog.Controllers
             try
             {
                 _logger.LogInformation($"GET WeatherForecast.");
-
+                _logger.LogWarning("IP:12312312");
                 throw new Exception("Erro in Get");
 
                 var result =  Enumerable.Range(1, 5).Select(index => new WeatherForecast
@@ -41,7 +41,7 @@ namespace FilterSerilog.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Error in GET WeatherForecast");
+                _logger.LogError(ex, $"error in water");
                 return BadRequest($"An error occurred in the request + {ex.Message}");
             }
 

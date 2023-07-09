@@ -1,18 +1,19 @@
-﻿using Serilog;
+﻿using Microsoft.Extensions.Configuration;
+using Serilog;
 using Serilog.Events;
 
-namespace FilterSerilog.SerilogConfiguration
+namespace SerilogConfiguration.ConfigurationSerilog
 {
     public static class ConfigurationSerilog
     {
-        public static Serilog.ILogger ConfigureSerilog(IConfiguration configuration)
+        public static ILogger ConfigureSerilog(IConfiguration configuration)
         {
             bool serilogEnabled = configuration.GetValue<bool>("Serilog:Enabled");
-
+            
             var loggerConfiguration = new LoggerConfiguration()
-                .ReadFrom.Configuration(configuration)
-                .Enrich.FromLogContext();
-               
+                          .ReadFrom.Configuration(configuration)
+                          .Enrich.FromLogContext();
+
 
             if (serilogEnabled)
             {
@@ -26,12 +27,16 @@ namespace FilterSerilog.SerilogConfiguration
             // Configuração para logs resumidos
             var summaryLogsPath = "../logs/filter-log.log";
             loggerConfiguration.WriteTo.Logger(lc => lc
-                .Filter.ByIncludingOnly(evt => IsMinimumLogLevel(evt))
-                .WriteTo.File(summaryLogsPath,
+                 .Filter.ByIncludingOnly(evt => IsMinimumLogLevel(evt))
+                 .Filter.ByExcluding((LogEvent logEvent) =>
+                 {
+                     string logMessage = logEvent.MessageTemplate.Text;
+                     bool contemStringIP = logMessage.Contains("IP");
+                     return contemStringIP;
+                 }).WriteTo.File(summaryLogsPath,
                     rollingInterval: RollingInterval.Day,
                     outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} {Level:u3}] {Message}{NewLine}{Exception}",
-                    fileSizeLimitBytes: null, // Definido como nulo para permitir que o arquivo cresça sem limite
-                    shared: true)); // compartilhar o arquivo com outros loggers
+                    fileSizeLimitBytes: null));  // Definido como nulo para permitir que o arquivo cresça sem limite
 
 
             Log.Logger = loggerConfiguration.CreateLogger();
@@ -58,5 +63,6 @@ namespace FilterSerilog.SerilogConfiguration
 
             return minimumLevels.Contains(logEvent.Level);
         }
+        
     }
 }

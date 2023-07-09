@@ -1,5 +1,5 @@
 using Serilog;
-using FilterSerilog.SerilogConfiguration;
+using SerilogConfiguration.ConfigurationSerilog;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
