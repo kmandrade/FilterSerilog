@@ -7,7 +7,11 @@
     <PackageId>Util.Filter.LogSerilog</PackageId>
     <Title>FilterLogSerilog</Title>
     <Authors>KelvinAndrade</Authors>
-    <Description>Esta lib irá permitir a geração de dois tipos de arquivos txt de log, um com os logs de todos os níveis mínimos e outro apenas com os logs de níves: Erro, Warning, Fatal</Description>
+    <Description>Esta lib irá permitir a geração de dois tipos de arquivos txt de log, um com os logs de todos os níveis mínimos e outro apenas com os logs de níves: Erro, Warning e Fatal.
+Permitindo mais facilidade ao identificar problemas na aplicação por meio de logs, utilizando Serilog.</Description>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/kmandrade/FilterSerilog</RepositoryUrl>
+    <PackageTags>Logging, Logger, Logs, Text</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
