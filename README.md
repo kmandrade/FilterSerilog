@@ -9,7 +9,7 @@ Para conseguir utilizar precisa seguir os seguintes passos:
         
         *Adicionar a referência da lib baixada na classe de startup da aplicação;
         
-        *Adicionar no AppSettings da api a configuração do Serilog que irá permitir ou não a geração dos logs completos a desejo de quem estiver configurando;
+        *Adicionar no AppSettings da api a configuração do Serilog que irá permitir ou não a geração dos logs completos da aplicação;
                 "Serilog": {
                     "Enabled": true
                   }
