@@ -15,3 +15,4 @@ Para conseguir utilizar precisa seguir os seguintes passos:
                   }
         *Adicionar na classe de startup da aplicação a nova configuração do Serilog:
                 builder.Services.AddSerilog(ConfigurationSerilog.ConfigureSerilog(builder.Configuration));
+OBS.: Nesta configuração foi adicionada uma restrição para ocultar informações de IP caso seja fornecida no log, afim de exemplificar a excclusão de alguma string específica, como nesse caso foi definido que caso na string do log contenha "IP" será excluída por completo (apenas nos logs filtrados).
