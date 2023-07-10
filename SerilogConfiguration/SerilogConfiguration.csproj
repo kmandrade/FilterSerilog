@@ -12,6 +12,8 @@ Permitindo mais facilidade ao identificar problemas na aplicação por meio de l
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/kmandrade/FilterSerilog</RepositoryUrl>
     <PackageTags>Logging, Logger, Logs, Text</PackageTags>
+    <Version>1.1.0</Version>
+    <PackageReleaseNotes>Modificado forma de salvar os logs em um caminho dinâmico podendo ser escolhido por meio do AppSettings</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
