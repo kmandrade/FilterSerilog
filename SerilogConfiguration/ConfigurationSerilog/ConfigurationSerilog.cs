@@ -9,7 +9,8 @@ namespace SerilogConfiguration.ConfigurationSerilog
         public static ILogger ConfigureSerilog(IConfiguration configuration)
         {
             bool serilogEnabled = configuration.GetValue<bool>("Serilog:Enabled");
-            
+            string path = configuration.GetValue<string>("Serilog:FilePath") ?? throw new ArgumentNullException("configuration", "Necessário preencher caminho do arquivo");
+
             var loggerConfiguration = new LoggerConfiguration()
                           .ReadFrom.Configuration(configuration)
                           .Enrich.FromLogContext();
@@ -18,14 +19,14 @@ namespace SerilogConfiguration.ConfigurationSerilog
             if (serilogEnabled)
             {
                 // Configuração para logs completos
-                var completeLogsPath = "../logs/complete-log.log";
+                var completeLogsPath = path + "complete-log.log";
                 loggerConfiguration.WriteTo.File(completeLogsPath,
                     rollingInterval: RollingInterval.Day,
                     outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} {CorrelationId} {Level:u3}] {Username} {Message:lj}{NewLine}{Exception}");
             }
 
             // Configuração para logs resumidos
-            var summaryLogsPath = "../logs/filter-log.log";
+            var summaryLogsPath = path + "filter-log.log";
             loggerConfiguration.WriteTo.Logger(lc => lc
                  .Filter.ByIncludingOnly(evt => IsMinimumLogLevel(evt))
                  .Filter.ByExcluding((LogEvent logEvent) =>
