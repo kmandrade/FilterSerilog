@@ -11,10 +11,12 @@ Para conseguir utilizar precisa seguir os seguintes passos:
         
         *Adicionar a referência da lib baixada na classe de startup da aplicação;
         
-        *Adicionar no AppSettings da api a configuração do Serilog que irá permitir ou não a geração dos logs completos da aplicação;
+        *Adicionar no AppSettings da api a configuração do Serilog que irá permitir ou não a geração dos logs completos da aplicação
+        e também que irá permitir mudar o caminho do arquivo por meio do AppSettings.
                 "Serilog": {
-                    "Enabled": true
-                  }
+                  "Enabled": true,
+                  "FilePath": "../logs/"
+                }
         *Adicionar na classe de startup da aplicação a nova configuração do Serilog:
                 builder.Services.AddSerilog(ConfigurationSerilog.ConfigureSerilog(builder.Configuration));
 
